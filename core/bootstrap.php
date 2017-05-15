@@ -1,6 +1,7 @@
 <?php
 
 use Recca0120\LaravelTracy\Tracy;
+use App\Core\App;
 
 // before outout
 $tracy = Tracy::instance();

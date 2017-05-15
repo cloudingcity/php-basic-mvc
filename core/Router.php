@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core;
+
 class Router
 {
     protected $routes = [];
@@ -28,16 +30,17 @@ class Router
                 ...explode('@', $this->routes[$requestType][$uri])
             );
         } else {
-            throw new Exception('No route defined for this URI');
+            throw new \Exception('No route defined for this URI');
         }
     }
 
     protected function callAction($controller, $action)
     {
+        $controller = "App\\Controllers\\{$controller}";
         $controller = new $controller;
 
         if (! method_exists($controller, $action)) {
-            throw new Exception(
+            throw new \Exception(
                 "{$controller} does not respond to the {$action} action."
             );
         }
