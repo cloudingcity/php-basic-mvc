@@ -23,14 +23,10 @@ class Router
 
     public function direct($uri, $requestType)
     {
-        try {
-            if (array_key_exists($uri, $this->routes[$requestType])) {
-                return $this->routes[$requestType][$uri];
-            } else {
-                throw new Exception('No route defined for this URI');
-            }
-        } catch (Exception $e) {
-            return 'views/404.php';
+        if (array_key_exists($uri, $this->routes[$requestType])) {
+            return $this->routes[$requestType][$uri];
+        } else {
+            throw new Exception('No route defined for this URI');
         }
     }
 }

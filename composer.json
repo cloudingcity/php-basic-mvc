@@ -3,5 +3,8 @@
     "classmap": [
         "./"
     ]
+  },
+  "require-dev": {
+    "recca0120/laravel-tracy": "^1.8"
   }
 }
